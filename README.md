@@ -1,1 +1,1 @@
-MERN Stack
+MERN Stack bookstore
