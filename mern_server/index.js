@@ -36,14 +36,16 @@ async function run() {
       res.send(result);
   })
 
-  // // get all books from db
-        // app.get("/all-books", async (req, res) => {
-        //     const books = bookCollections.find();
-        //     const result = await books.toArray();
-        //     res.send(result)
-        // })
+  // get all books from db
+        app.get("/all-books", async (req, res) => {
+            const books = bookCollections.find();
+            const result = await books.toArray();
+            res.send(result)
+        })
 
-        // get all books & find by a category from db
+
+
+      // get all books & find by a category from db
         app.get("/all-books", async (req, res) => {
           let query = {};
           if (req.query?.category) {
