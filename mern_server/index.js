@@ -43,7 +43,15 @@ async function run() {
         //     res.send(result)
         // })
 
-     
+        // get all books & find by a category from db
+        app.get("/all-books", async (req, res) => {
+          let query = {};
+          if (req.query?.category) {
+              query = { category: req.query.category }
+          }
+          const result = await bookCollections.find(query).toArray();
+          res.send(result)
+      })
 
   
     // Send a ping to confirm a successful connection
