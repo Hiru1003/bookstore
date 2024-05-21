@@ -87,7 +87,7 @@ async function run() {
   app.get("/book/:id", async (req, res) => {
     const id = req.params.id;
     const filter = { _id: new ObjectId(id) };
-    const result = await bookCollections.findOne(filter);
+   
     res.send(result)
 })
 
