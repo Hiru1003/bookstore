@@ -53,6 +53,24 @@ async function run() {
           res.send(result)
       })
 
+      // update a books method
+      app.patch("/book/:id", async (req, res) => {
+        const id = req.params.id;
+        // console.log(id);
+        const updateBookData = req.body;
+        const filter = { _id: new ObjectId(id) };
+        const updatedDoc = {
+            $set: {
+                ...updateBookData
+            }
+        }
+        const options = { upsert: true };
+
+        // update now
+        const result = await bookCollections.updateOne(filter, updatedDoc, options);
+        res.send(result);
+    })
+
   
     // Send a ping to confirm a successful connection
     await client.db("admin").command({ ping: 1 });
