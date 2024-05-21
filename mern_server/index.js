@@ -36,6 +36,15 @@ async function run() {
       res.send(result);
   })
 
+  // // get all books from db
+        // app.get("/all-books", async (req, res) => {
+        //     const books = bookCollections.find();
+        //     const result = await books.toArray();
+        //     res.send(result)
+        // })
+
+     
+
   
     // Send a ping to confirm a successful connection
     await client.db("admin").command({ ping: 1 });
@@ -55,3 +64,6 @@ run().catch(console.dir);
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
 })
+
+
+//npm start
