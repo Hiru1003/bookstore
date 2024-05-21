@@ -84,12 +84,12 @@ async function run() {
 
 
   // get a single book data
-  app.get("/book/:id", async (req, res) => {
-    const id = req.params.id;
-    const filter = { _id: new ObjectId(id) };
-   
-    res.send(result)
-})
+        app.get("/book/:id", async (req, res) => {
+            const id = req.params.id;
+            const filter = { _id: new ObjectId(id) };
+            const result = await bookCollections.findOne(filter);
+            res.send(result)
+        })
 
   
     // Send a ping to confirm a successful connection
