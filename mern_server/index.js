@@ -12,7 +12,7 @@ app.get('/', (req, res) => {
 })
 
 // mongodb confiq here
-const { MongoClient, ServerApiVersion } = require('mongodb');
+const { MongoClient, ServerApiVersion,ObjectId } = require('mongodb');
 const uri = "mongodb+srv://mern-bookstore:zrv0tdYJbu9V8Hu3@cluster0.hcvzaho.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
 // Create a MongoClient with a MongoClientOptions object to set the Stable API version
 const client = new MongoClient(uri, {
@@ -46,14 +46,14 @@ async function run() {
 
 
       // get all books & find by a category from db
-        app.get("/all-books", async (req, res) => {
-          let query = {};
-          if (req.query?.category) {
-              query = { category: req.query.category }
-          }
-          const result = await bookCollections.find(query).toArray();
-          res.send(result)
-      })
+      //   app.get("/all-books", async (req, res) => {
+      //     let query = {};
+      //     if (req.query?.category) {
+      //         query = { category: req.query.category }
+      //     }
+      //     const result = await bookCollections.find(query).toArray();
+      //     res.send(result)
+      // })
 
       // update a books method
       app.patch("/book/:id", async (req, res) => {
