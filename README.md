@@ -1,3 +1,3 @@
-# MERN Stack bookstore
+# MERN Stack bookstore management system
 
 
