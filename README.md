@@ -1,3 +1,6 @@
 # MERN Stack bookstore management system
 
-## Upload book
+## Features
+### Upload book
+### Update book
+### Delete book
