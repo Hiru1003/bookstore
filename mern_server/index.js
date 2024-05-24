@@ -37,11 +37,11 @@ async function run() {
   })
 
   // get all books from db
-        app.get("/all-books", async (req, res) => {
-            const books = bookCollections.find();
-            const result = await books.toArray();
-            res.send(result)
-        })
+        // app.get("/all-books", async (req, res) => {
+        //     const books = bookCollections.find();
+        //     const result = await books.toArray();
+        //     res.send(result)
+        // })
 
 
 
@@ -54,6 +54,7 @@ async function run() {
       //     const result = await bookCollections.find(query).toArray();
       //     res.send(result)
       // })
+
 
       // update a books method
       app.patch("/book/:id", async (req, res) => {
