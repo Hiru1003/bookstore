@@ -29,7 +29,15 @@ const Navbar =() => {
     return() => {
       window.addEventListener("scroll", handleScroll);
     }
-  })
+  }, [])
+
+  const navItems =[
+    {link: "Home", path: "/"},
+    {link: "About", path: "/about"},
+    {link: "Shop", path: "/shop"},
+    {link: "Sell your book", path: "/admin/dashboard"},
+    {link: "Blog", path: "/blog"}
+  ]
 }
 
   return (
