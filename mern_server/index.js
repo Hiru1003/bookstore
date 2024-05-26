@@ -84,11 +84,13 @@ async function run() {
         })
 
 
-        // get a single book data
-        app.get("/book/:id", async (req, res) => {
-            const id = req.params.id;
-            const filter = { _id: new ObjectId(id) };
-            const result = await bookCollections.findOne(filter);
+        // find by category
+        app.get("/all-books", async (req, res) => {
+            let query = {};
+            if(req.query?.category){
+              query = {category: req.query.category}
+            }
+            const result = await bookCollections.find(query).toArray;
             res.send(result)
         })
 
