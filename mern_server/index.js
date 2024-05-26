@@ -36,15 +36,12 @@ async function run() {
       res.send(result);
   })
 
-      // get all books from db
-      app.get("/all-books", async (req, res) => {
-        try {
-          const books = await bookCollections.find().toArray();
-          res.send(books);
-        } catch (error) {
-          res.status(500).send({ error: 'Failed to fetch books' });
-        }
-      });
+       // get all books from db
+       app.get("/all-books", async (req, res) => {
+        const books = await bookCollections.find();
+        const result = await books.toArray();
+        res.send(result)
+    })
 
 
       // update a books method
