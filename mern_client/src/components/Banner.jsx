@@ -3,7 +3,7 @@ import Bannercard from '../home/Bannercard';
 
 const Banner = () => {
   return (
-    <div className='px-4 lg:px-24 bg-teal-100 flex items-center'>
+    <div className='px-4 lg:px-24 bg-sky-100 flex items-center'>
       <div className='flex w-full flex-col md:flex-row justify-between items-center gap-12 py-40'>
        
         {/* left */}
