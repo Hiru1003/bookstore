@@ -12,6 +12,8 @@ import 'swiper/css/pagination';
 import { Pagination } from 'swiper/modules';
 
 const Bookcard = ({headline, books}) => {
+  console.log(books);
+
   return (
     <div className='my-16 px-4 lg:px24'>
       <h2 className='text-5xl text-center font-bold text-black my-5'>{headline}</h2>
@@ -38,17 +40,20 @@ const Bookcard = ({headline, books}) => {
           },
         }}
         modules={[Pagination]}
-        className="mySwiper"
+        className="mySwiper w-full h-full"
       >
-        <SwiperSlide>Slide 1</SwiperSlide>
-        <SwiperSlide>Slide 2</SwiperSlide>
-        <SwiperSlide>Slide 3</SwiperSlide>
-        <SwiperSlide>Slide 4</SwiperSlide>
-        <SwiperSlide>Slide 5</SwiperSlide>
-        <SwiperSlide>Slide 6</SwiperSlide>
-        <SwiperSlide>Slide 7</SwiperSlide>
-        <SwiperSlide>Slide 8</SwiperSlide>
-        <SwiperSlide>Slide 9</SwiperSlide>
+        {
+            books.map(book => <SwiperSlide key={book._id}>
+                <link to="/">
+                    <div>
+                        <img src={book.imageUrl} alt=''/>
+                    </div>
+                    <div>
+                        <h3>{book.title}</h3>
+                    </div>
+                </link>
+            </SwiperSlide>)
+        }
       </Swiper>
       </div>
     </div>
