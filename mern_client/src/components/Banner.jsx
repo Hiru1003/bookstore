@@ -1,4 +1,5 @@
 import React from 'react';
+import Bannercard from '../home/Bannercard';
 
 const Banner = () => {
   return (
@@ -7,8 +8,8 @@ const Banner = () => {
        
         {/* left */}
         <div className="w-full md:w-1/2">
-          <h1 className='text-5xl font-bold leading-snug text-black'>Buy And Sell Your Books</h1>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+          <h1 className='text-5xl font-bold leading-snug text-black mb-5'>Buy And Sell Your Books</h1>
+          <p className='mb-5 text-lg'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
             Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
             Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
             Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
@@ -21,7 +22,7 @@ const Banner = () => {
 
         {/* right */}
         <div className="w-full md:w-1/2">
-          Right Side
+          <Bannercard></Bannercard>
         </div>
       </div>
     </div>
