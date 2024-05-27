@@ -1,17 +1,17 @@
 import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import  { FaCartShopping } from "react-icons/fa6";
-import { Link } from 'react-router-dom'; // Import Link from react-router-dom
+import { FaCartShopping } from "react-icons/fa6";
+import { Link } from 'react-router-dom';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import { Pagination } from 'swiper/modules';
 
 const Bookcard = ({ headline, books }) => {
   return (
-    <div className='my-16 px-4 lg:px-24 '>
-      <h2 className='text-5xl text-center font-bold text-black my-5'>{headline}</h2>
+    <div className='my-16 px-4 lg:px-24'>
+      <h2 className='text-5xl text-center font-bold text-black mb-5'>{headline}</h2> {/* Added margin bottom */}
       
-      <div>
+      <div className="mt-10 mb-10"> 
         <Swiper
           slidesPerView={1}
           spaceBetween={10}
@@ -30,8 +30,8 @@ const Bookcard = ({ headline, books }) => {
               spaceBetween: 50,
             },
           }}
-          modules={[Pagination]}
-          className="mySwiper w-full h-full"
+    
+          className="mySwiper w-full h-full mt-16"
         >
           {books.map(book => (
             <SwiperSlide key={book._id}>
