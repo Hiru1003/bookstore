@@ -8,7 +8,7 @@ import { Pagination } from 'swiper/modules';
 
 const Bookcard = ({ headline, books }) => {
   return (
-    <div className='my-16 px-4 lg:px-24'>
+    <div className='my-16 px-4 lg:px-24 pb-24 pt-10 '>
       <h2 className='text-5xl text-center font-bold text-black mb-5'>{headline}</h2> {/* Added margin bottom */}
       
       <div className="mt-10 mb-10"> 
@@ -36,7 +36,7 @@ const Bookcard = ({ headline, books }) => {
           {books.map(book => (
             <SwiperSlide key={book._id}>
               <Link to={`/book/${book._id}`}>
-                <div className='relative'>
+                <div className='relative '>
                   <img src={book.imageUrl} alt={book.title} />
 
                   <div className='absolute top-3 right-3 bg-blue-600 hover:bg-black p-2 rounded'>
