@@ -7,7 +7,7 @@ const BestSellerBooks = () => {
   useEffect(() => {
     fetch("http://localhost:5000/all-books")
       .then(res => res.json())
-      .then(data => setBooks(data)) 
+      .then(data => setBooks(data.slice(0,9))) 
       .catch(err => console.error("Error fetching books:", err));
   }, []);
 
