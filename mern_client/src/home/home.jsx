@@ -1,12 +1,14 @@
 import React from 'react'
 import Banner from '../components/Banner'
 import BestSellerBooks from './BestSellerBooks'
+import Favbooks from './Favbooks'
 
 const home = () => {
   return (
-    <div>
+    <div className="bg-white">
         <Banner/>
         <BestSellerBooks/>
+        <Favbooks/>
     </div>
   )
 }
