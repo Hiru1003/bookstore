@@ -1,5 +1,6 @@
 import React from 'react'
 import favimg from "../assets/favimg.png"
+import { Link } from 'react-router-dom'
 
 const Favbooks = () => {
   return (
@@ -17,7 +18,7 @@ const Favbooks = () => {
             Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
           </p>
 
-          <div className='flex flex-col sm:flex-row justify-between gap-6 my-14 pb-10 md:w-3/4'>
+          <div className='flex flex-col sm:flex-row justify-between gap-6 my-14 md:w-3/4'>
             <div>
                 <h3 className='text-3xl font-bold'>800+</h3>
                 <p className='text-xl text-base'>Book Listening</p>
@@ -31,6 +32,11 @@ const Favbooks = () => {
                 <p className='text-xl text-base'>PDF Downloaded</p>
             </div>
           </div>
+          <Link to="/shop" className=''>
+            <button className='bg-blue-400 w-48 text-white font-semibold px-5 py-3 text-lg rounded hover:bg-black transition-all duration-300'>
+                Explore More
+            </button>
+          </Link>
       </div>
     </div>
   )
