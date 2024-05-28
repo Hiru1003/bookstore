@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button, Checkbox, Label, Select, TextInput } from "flowbite-react";
+import { Button, Checkbox, Label, Select, TextInput, Textarea } from "flowbite-react";
 
 const Uploadbook = () => {
   const BookCategories = [
@@ -45,7 +45,7 @@ const Uploadbook = () => {
   ]
   const [selectedBookCategories, setSelectedCategorie] = useState(BookCategories[0]);
   const handleChangeSelectedValue =(event)=> {
-    //console.log(event.target.value);
+    console.log(event.target.value);
     selectedBookCategories(event.target.value);
   }
 
@@ -60,17 +60,17 @@ const Uploadbook = () => {
           {/* title */}
           <div>
             <div className="mb-3 block">
-              <Label htmlFor="title" value="Book Title" />
+              <Label htmlFor="title" value="Book Title" className='text-xl'/>
             </div>
-            <TextInput id="title" type="text" name='title' placeholder='Book Name' required />
+            <TextInput id="title" type="text" name='title' placeholder='Book Name' required/>
           </div>
 
           {/* author */}  
           <div>
             <div className="mb-3 block">
-              <Label htmlFor="authorName" value="Author Name" />
+              <Label htmlFor="authorName" value="Author Name" className='text-xl'/>
             </div>
-            <TextInput id="authorName" type="text" name='authorName' placeholder='Author Name' required />
+            <TextInput id="authorName" type="text" name='authorName' placeholder='Author Name' required  />
           </div>
         </div>
 
@@ -81,17 +81,17 @@ const Uploadbook = () => {
           {/* imageUrl */}
           <div>
             <div className="mb-3 block">
-              <Label htmlFor="imageUrl" value="Book Image Url" />
+              <Label htmlFor="imageUrl" value="Book Image Url" className='text-xl'/>
             </div>
-            <TextInput id="imageUrl" type="text" name='imageUrl' placeholder='Book Image Url' required />
+            <TextInput id="imageUrl" type="text" name='imageUrl' placeholder='Book Image Url' required  />
           </div>
 
           {/* Category */}  
           <div>
             <div className="mb-3 block">
-              <Label htmlFor="inputState" value="Book Category" />
+              <Label htmlFor="inputState" value="Book Category" className='text-xl'/>
             </div>
-            <select id='inputState' name='categoryName' className='w-full rounded' value={selectedBookCategories} onChange={handleChangeSelectedValue}>
+            <select id='inputState' name='categoryName' className='w-full rounded ' value={selectedBookCategories} onChange={handleChangeSelectedValue}>
               {BookCategories.map(option => (
                 <option key={option} value={option}>{option}</option>
               ))}
@@ -100,6 +100,34 @@ const Uploadbook = () => {
           </div>
         </div>
 
+
+        {/* Third Row */}
+        <div>
+    
+          {/* Description */}
+          <div>
+            <div className="mb-3 block">
+              <Label htmlFor="description" value="Book Description" className='text-xl'/>
+            </div>
+            <Textarea id="description" type="text" name='description' placeholder='Write Your Book Description' required rows={6} />
+          </div>
+        </div>
+
+        {/* Forth Row */}
+        <div>
+    
+          {/* Pdf UrL */}
+          <div>
+            <div className="mb-3 block">
+              <Label htmlFor="pdfUrl" value="Book PDF URL" className='text-xl'/>
+            </div>
+            <TextInput id="pdfUrl" type="text" name='pdfUrl' placeholder='Book PDF URL' required/>
+          </div>
+        </div>
+
+        <button className='bg-blue-400 w-full text-white font-semibold px-5 py-3 text-lg rounded hover:bg-black transition-all duration-300'>
+            Upload Book
+        </button>
 
       </form>
     </div>
