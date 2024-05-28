@@ -8,6 +8,7 @@ import Shop from "../shop/Shop";
 import About from "../components/About";
 import Blog from "../components/Blog";
 import Singlebook from "../shop/Singlebook";
+import DashboardLayout from "../dashboard/DashboardLayout";
 
   const router = createBrowserRouter([
     {
@@ -36,7 +37,11 @@ import Singlebook from "../shop/Singlebook";
           loader: ({ params }) => fetch(`http://localhost:5000/book/${params.id}`)
         }
       ]
-    },6766
+    },
+    {
+      path: "/admin/dashboard",
+      element: <DashboardLayout/>,
+    }
   ]);
 
   export default router;
