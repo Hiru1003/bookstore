@@ -42,41 +42,57 @@ const Uploadbook = () => {
     "True Crime",
     "Parenting",
     "Humor",
-  ]
+  ];
 
   const [selectedBookCategories, setSelectedCategorie] = useState(BookCategories[0]);
-  const handleChangeSelectedValue =(event)=> {
-    console.log(event.target.value);
-    selectedBookCategories(event.target.value);
+  
+  const handleChangeSelectedValue = (event) => {
+    setSelectedCategorie(event.target.value);
   }
 
-  //handle book submission
-  const handleBookSubmit  = (event) => {
+  // handle book submission
+  const handleBookSubmit = (event) => {
     event.preventDefault();
     const form = event.target;
 
     const title = form.title.value;
     const authorName = form.authorName.value;
     const imageUrl = form.imageUrl.value;
-    const category = form.category.value;
+    const category = selectedBookCategories;
     const description = form.description.value;
     const pdfUrl = form.pdfUrl.value;
 
     const bookObj = {
-      title,authorName,imageUrl,category,description,pdfUrl
-    }
+      title, authorName, imageUrl, category, description, pdfUrl
+    };
 
     console.log(bookObj);
+
+    // send data to db
+    fetch("http://localhost:5000/upload-book", {
+      method: "POST",
+      headers: {
+        "Content-type": "application/json",
+      },
+      body: JSON.stringify(bookObj)
+    })
+    .then(res => res.json())
+    .then(data => {
+      alert("Book Uploaded Successfully!");
+    })
+    .catch(error => {
+      console.error("Error uploading book:", error);
+      alert("Failed to upload book.");
+    });
   }
 
   return (
     <div className='px-4 my-12'>
       <h2 className='mb-8 text-3xl font-bold'>Upload Book</h2>
 
-      <form className="lg:w-[1180px] flex flex-col gap-4" >
+      <form className="lg:w-[1180px] flex flex-col gap-4" onSubmit={handleBookSubmit}>
         {/* First Row */}
         <div className='grid grid-cols-1 md:grid-cols-2 gap-8'>
-    
           {/* title */}
           <div>
             <div className="mb-3 block">
@@ -94,10 +110,8 @@ const Uploadbook = () => {
           </div>
         </div>
 
-
         {/* Second Row */}
         <div className='grid grid-cols-1 md:grid-cols-2 gap-8'>
-    
           {/* imageUrl */}
           <div>
             <div className="mb-3 block">
@@ -111,19 +125,16 @@ const Uploadbook = () => {
             <div className="mb-3 block">
               <Label htmlFor="inputState" value="Book Category" className='text-xl'/>
             </div>
-            <select id='inputState' name='category' className='w-full rounded ' value={selectedBookCategories} onChange={handleChangeSelectedValue}>
+            <select id='inputState' name='category' className='w-full rounded' value={selectedBookCategories} onChange={handleChangeSelectedValue}>
               {BookCategories.map(option => (
                 <option key={option} value={option}>{option}</option>
               ))}
             </select>
-
           </div>
         </div>
 
-
         {/* Third Row */}
         <div>
-    
           {/* Description */}
           <div>
             <div className="mb-3 block">
@@ -135,7 +146,6 @@ const Uploadbook = () => {
 
         {/* Forth Row */}
         <div>
-    
           {/* Pdf UrL */}
           <div>
             <div className="mb-3 block">
@@ -145,10 +155,9 @@ const Uploadbook = () => {
           </div>
         </div>
 
-        <button className='bg-blue-400 w-full text-white font-semibold px-5 py-3 text-lg rounded hover:bg-black transition-all duration-300'>
-            Upload Book
+        <button type='submit' className='bg-blue-400 w-full text-white font-semibold px-5 py-3 text-lg rounded hover:bg-black transition-all duration-300'>
+          Upload Book
         </button>
-
       </form>
     </div>
   );
