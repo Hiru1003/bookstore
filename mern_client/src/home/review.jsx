@@ -13,11 +13,11 @@ import { Pagination } from 'swiper/modules';
 
 const ReviewPage = () => {
   return (
-    <div>
-      <div className='my-12 px-4 lg:px-24 pb-24'>
+    <div className='bg-white'>
+      <div className='my-12 px-4 lg:px-24 pb-24 bg-white'>
         <h2 className='text-5xl font-bold text-center mb-10 leading-snug pb-5'>Our Customers</h2>  
 
-        <div>
+        <div className='bg-white'>
           <Swiper
             slidesPerView={1}
             spaceBetween={30}
