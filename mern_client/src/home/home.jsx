@@ -5,6 +5,7 @@ import Favbooks from './Favbooks'
 import PromoBanner from './PromoBanner'
 import Otherbook from './Otherbook'
 import ReviewPage from './review'
+import Myfooter from '../components/Myfooter'
 
 
 const home = () => {
@@ -14,8 +15,9 @@ const home = () => {
         <BestSellerBooks/>
         <Favbooks/>
         <PromoBanner/>
-        <Otherbook/>
+        <Otherbook/>                        
         <ReviewPage/>
+        <Myfooter/>
     </div>
   )
 }
