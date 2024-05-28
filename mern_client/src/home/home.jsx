@@ -17,7 +17,6 @@ const home = () => {
         <PromoBanner/>
         <Otherbook/>                        
         <ReviewPage/>
-        <Myfooter/>
     </div>
   )
 }
