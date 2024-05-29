@@ -59,12 +59,14 @@ import EditBooks from "../dashboard/EditBooks";
           element: <ManageBooks/>
         },
         {
-          path: "/admin/dashboard/edit-books:id",
+          path: "/admin/dashboard/edit-books:_id",
           element: <EditBooks/>,
-          loader: ({ params }) => fetch(`http://localhost:5000/book/${params.id}`)
+          loader: ({ params }) => fetch(`http://localhost:5000/admin/dashboard/edit-books${params.id}`)
         },
       ]
     }
   ]);
 
   export default router;
+
+  
