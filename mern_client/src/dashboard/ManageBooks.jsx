@@ -1,13 +1,24 @@
 import React from 'react'
 import { Table } from "flowbite-react";`q`
+import React, { useState, useEffect } from 'react';
 
 const ManageBooks = () => {
+
+  const[allBooks, setAllBooks] = useState([]);
+  useEffect(() => {
+    fetch("http://localhost:5000/upload-book")
+    .then(res => res.json())
+    .then(data => setAllBooks(data))
+  }, [])
+
+
   return (
     <div className='px-4 my-12'>
       <h2 className='mb-8 text-3xl font-bold'>Manage Your Book</h2>
 
-      <Table striped>
+      <Table striped className='lg:w-[1180px]'>
         <Table.Head>
+        <Table.HeadCell>Title</Table.HeadCell>
           <Table.HeadCell>Product name</Table.HeadCell>
           <Table.HeadCell>Color</Table.HeadCell>
           <Table.HeadCell>Category</Table.HeadCell>
