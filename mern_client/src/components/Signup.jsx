@@ -2,6 +2,12 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 const Signup = () => {
+  const handleSignUp = (event) => {
+    event.preventDefault();
+    const form = event.target;
+    const email = event.email.value;
+    const password = event.password.value;
+  }
   return (
     <div class="min-h-screen bg-gray-100 py-6 flex flex-col justify-center sm:py-12">
 	<div class="relative py-3 sm:max-w-xl sm:mx-auto">
@@ -14,7 +20,7 @@ const Signup = () => {
 					<h1 class="text-2xl font-semibold">Sign Up Form For The Bookstore     </h1>
 				</div>
 				<div class="divide-y divide-gray-200">
-					<div class="py-8 text-base leading-6 space-y-4 text-gray-700 sm:text-lg sm:leading-7">
+					<form class="py-8 text-base leading-6 space-y-4 text-gray-700 sm:text-lg sm:leading-7">
 						<div class="relative">
 							<input autocomplete="off" id="email" name="email" type="text" class="peer h-10 w-full border-b-2 border-gray-300 text-gray-900 focus:outline-none focus:borer-rose-600" placeholder="Email address" />
 						</div>
@@ -25,7 +31,7 @@ const Signup = () => {
 						<div class="relative">
 							<button class="bg-blue-500 text-white rounded-md px-2 py-1 w-36">Sign Up</button>
 						</div>
-					</div>
+					</form>
 				</div>
 			</div>
 		</div>
