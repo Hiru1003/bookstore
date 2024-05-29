@@ -116,7 +116,7 @@ const ReviewPage = () => {
                 </div>
                 <div>
                   <p className='text-lg mt-12'>
-                  Shopping here has been a delightful experience. The selection is top-notch, and the prices are very reasonable. I appreciate the fast shipping and the condition in which the books arrive. The customer service is also very responsive and helpful.
+                  Shopping here has been a delightful experience. The selection is top-notch, and the prices are very reasonable. I appreciate the fast and customer freindly shipping and the condition in which the books arrive. The customer service is also very responsive and helpful.
                   </p>
                 </div>
               </div>
