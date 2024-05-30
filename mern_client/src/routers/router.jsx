@@ -14,6 +14,7 @@ import Uploadbook from "../dashboard/Uploadbook";
 import ManageBooks from "../dashboard/ManageBooks";
 import EditBooks from "../dashboard/EditBooks";
 import Signup from "../components/Signup";
+import Login from "../components/Login";
 
   const router = createBrowserRouter([
     {
@@ -70,10 +71,10 @@ import Signup from "../components/Signup";
     {
       path: "sign-up",
       element: <Signup/>,
-      children: [
-        {
-          
-        },]
+    },
+    {
+      path: "login",
+      element: <Login/>,
     }
   ]);
 
