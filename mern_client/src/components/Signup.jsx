@@ -3,7 +3,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Authcontext } from '../contacts/AuthProvider'; // Ensure this path is correct
 
 const Signup = () => {
-  const { createUser } = useContext(Authcontext);
+  const { createUser, googleprovider } = useContext(Authcontext);
   const [error, setError] = useState("");
 
   const lacation = useLocation();
@@ -31,6 +31,20 @@ const Signup = () => {
         setError(errorMessage);
       });
   };
+
+  //signup with google
+  const handleRegister = () => {
+    googleprovider().then((result) => {
+      const user = result.user;
+      alert("Sign Up Successfully");
+      navigate(from, {replace:true})
+    })
+    .catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      setError(errorMessage);
+    });
+  }
 
   return (
     <div className="min-h-screen bg-gray-100 py-6 flex flex-col justify-center sm:py-12">
