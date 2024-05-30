@@ -3,14 +3,13 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Authcontext } from '../contacts/AuthProvider'; // Ensure this path is correct
 
 const Signup = () => {
-  const { createUser, googleprovider } = useContext(Authcontext);
+  const { createUser, signInWithGoogle } = useContext(Authcontext);
   const [error, setError] = useState("");
 
-  const lacation = useLocation();
+  const location = useLocation();
   const navigate = useNavigate();
 
   const from = location.state?.from?.pathname || "/";
-
 
   const handleSignUp = (event) => {
     event.preventDefault();
@@ -21,30 +20,27 @@ const Signup = () => {
     createUser(email, password)
       .then((userCredential) => {
         // Signed up 
-        const user = userCredential.user;
         alert("Sign Up Successfully");
-		navigate(from, {replace:true})
+        navigate(from, { replace: true });
       })
       .catch((error) => {
-        const errorCode = error.code;
         const errorMessage = error.message;
         setError(errorMessage);
       });
   };
 
-  //signup with google
+  // Signup with Google
   const handleRegister = () => {
-    googleprovider().then((result) => {
-      const user = result.user;
-      alert("Sign Up Successfully");
-      navigate(from, {replace:true})
-    })
-    .catch((error) => {
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      setError(errorMessage);
-    });
-  }
+    signInWithGoogle()
+      .then((result) => {
+        alert("Sign Up Successfully");
+        navigate(from, { replace: true });
+      })
+      .catch((error) => {
+        const errorMessage = error.message;
+        setError(errorMessage);
+      });
+  };
 
   return (
     <div className="min-h-screen bg-gray-100 py-6 flex flex-col justify-center sm:py-12">
@@ -66,32 +62,27 @@ const Signup = () => {
                   <input autoComplete="off" id="password" name="password" type="password" className="peer h-10 w-full border-b-2 border-gray-300 text-gray-900 focus:outline-none focus:border-rose-600" placeholder="Password" required />
                 </div>
                 {error && <p className="text-red-500">{error}</p>}
-                
-
-
-                <div class="mt-20 grid space-y-4">
-                        <button class="group h-12 px-6 border-2 border-gray-300 rounded-full transition duration-300 
-                              hover:border-blue-400 focus:bg-blue-50 active:bg-blue-100">
-                            <div class="relative flex items-center space-x-4 justify-center">
-                                <img src="https://tailus.io/sources/blocks/social/preview/images/google.svg" class="absolute left-0 w-5" alt="google logo" />
-                                <span class="block w-max font-semibold tracking-wide text-gray-700 text-sm transition duration-300 group-hover:text-blue-600 sm:text-base">Continue with Google</span>
-                            </div>
-                        </button>
-                </div>
-
-
-
-                <p>If you have an account, please <Link to="/login"><span className='text-blue-500'>Login</span></Link> here.</p>
                 <div className="relative">
                   <button type="submit" className="bg-blue-500 text-white rounded-md px-2 py-1 w-36">Sign Up</button>
                 </div>
               </form>
+              <div className="mt-4">
+              <button onClick={handleRegister} className="group h-12 px-6 border-2 border-gray-300 rounded-full transition duration-300 
+                    hover:border-blue-400 focus:bg-blue-50 active:bg-blue-100 mb-5">
+                <div className="relative flex items-center space-x-4 justify-center">
+                  <img src="https://tailus.io/sources/blocks/social/preview/images/google.svg" className="w-5" alt="google logo" />
+                  <span className="block w-max font-semibold tracking-wide text-gray-700 text-sm transition duration-300 group-hover:text-blue-600 sm:text-base">Continue with Google</span>
+                </div>
+              </button>
+
+              </div>
+              <p>If you have an account, please <Link to="/login"><span className='text-blue-500'>Login</span></Link> here.</p>
             </div>
           </div>
         </div>
       </div>
     </div>
   );
-}
+};
 
 export default Signup;
