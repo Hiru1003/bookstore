@@ -13,6 +13,7 @@ const Logout = () => {
     const handleLogout = () => {
         logout().then(() => {
     alert("Logout Successfully");
+    navigate(from, { replace: true });
     }).catch((error) => {
     // An error happened.
     });

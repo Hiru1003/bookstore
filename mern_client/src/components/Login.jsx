@@ -21,7 +21,7 @@ const Login = () => {
         // Signed in 
         const user = userCredential.user;
         alert("Login Successfully");
-        navigate(from, { replace: true });
+         
         // ...
       })
       .catch((error) => {
