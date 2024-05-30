@@ -1,7 +1,9 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
 
 const Signup = () => {
+  const {} = useContext(AutheContext);
+  
   const handleSignUp = (event) => {
     event.preventDefault();
     const form = event.target;
