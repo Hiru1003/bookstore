@@ -23,6 +23,7 @@ const Signup = () => {
         // Signed up 
         const user = userCredential.user;
         alert("Sign Up Successfully");
+		navigate(from, {replace:true})
       })
       .catch((error) => {
         const errorCode = error.code;
@@ -51,6 +52,21 @@ const Signup = () => {
                   <input autoComplete="off" id="password" name="password" type="password" className="peer h-10 w-full border-b-2 border-gray-300 text-gray-900 focus:outline-none focus:border-rose-600" placeholder="Password" required />
                 </div>
                 {error && <p className="text-red-500">{error}</p>}
+                
+
+
+                <div class="mt-20 grid space-y-4">
+                        <button class="group h-12 px-6 border-2 border-gray-300 rounded-full transition duration-300 
+                              hover:border-blue-400 focus:bg-blue-50 active:bg-blue-100">
+                            <div class="relative flex items-center space-x-4 justify-center">
+                                <img src="https://tailus.io/sources/blocks/social/preview/images/google.svg" class="absolute left-0 w-5" alt="google logo" />
+                                <span class="block w-max font-semibold tracking-wide text-gray-700 text-sm transition duration-300 group-hover:text-blue-600 sm:text-base">Continue with Google</span>
+                            </div>
+                        </button>
+                </div>
+
+
+
                 <p>If you have an account, please <Link to="/login"><span className='text-blue-500'>Login</span></Link> here.</p>
                 <div className="relative">
                   <button type="submit" className="bg-blue-500 text-white rounded-md px-2 py-1 w-36">Sign Up</button>

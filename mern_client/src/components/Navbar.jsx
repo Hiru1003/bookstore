@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { TbCircleLetterBFilled } from "react-icons/tb";
 import { IoMenu } from "react-icons/io5";
 import { FaXmark } from "react-icons/fa6";
+import { Authcontext } from '../contacts/AuthProvider';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -61,6 +62,7 @@ const Navbar = () => {
             <button onClick={toggleMenu} className='text-black focus:outline-none'>
               {isMenuOpen ? <FaXmark className='h-5 w-5 text-black' /> : <IoMenu className='h-5 w-5 text-black' />}
             </button>
+          
           </div>
         </div>
 
