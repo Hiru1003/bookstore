@@ -12,8 +12,8 @@ const Singlebook = () => {
   return (
     <div className='mt-28 px-4 lg:px-24'>
       <img src={book.imageUrl} alt={book.title} className='h-96'/>
-        <h2 className='text-4xl font-bold'>{book.title}</h2>
-        <p className='text-xl font-semibold'>{book.authorName}</p>
+        <h2 className='text-4xl font-bold mt-10 mb-5'>{book.title}</h2>
+        <p className='text-xl font-semibold mb-3'>{book.authorName}</p>
         <p className='text-xl'>{book.description}</p>
     </div>
   );
