@@ -1,6 +1,8 @@
 # MERN Stack bookstore management system
 
-## Features
-### Upload book
-### Update book
-### Delete book
+## Technologies Used:
+Frontend: React.js for building an interactive and responsive user interface.
+Backend: Node.js and Express.js for a robust server-side application.
+Database: MongoDB for a flexible and scalable database solution.
+Authentication: Secure user authentication and authorization mechanisms.
+State Management: Redux for efficient state management across the application.
